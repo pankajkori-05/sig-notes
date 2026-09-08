@@ -1,106 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Signal Notes – Pankaj Kori</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Personal notes on AI, data science, and spatial analytics by Pankaj Kori." />
-</head>
-<body>
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="#notes">Notes</a>
-    <a href="#about">About</a>
-    <a href="https://github.com/pankajkori-05" target="_blank" rel="noopener">GitHub</a>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIG College Notes — Semester 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="top">
+        <div class="brand">
+          <p class="kicker">Symbiosis Institute of Geoinformatics, Pune</p>
+          <h1>SIG College Notes</h1>
+          <p class="programme">
+            M.Sc. Data Science and Spatial Analytics · Semester 1
+          </p>
+        </div>
+        <div class="top-actions">
+          <div class="session">
+            <p class="session-label">Logged in as</p>
+            <p id="sessionName" class="session-name"></p>
+          </div>
+          <button type="button" id="logoutBtn" class="btn btn-secondary">
+            Logout
+          </button>
+        </div>
+      </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <h1>Signal Notes</h1>
-      <p class="subtitle">
-        Personal notes on AI, data science, and spatial analytics — written for humans, not just machines.
+      <p class="disclaimer">
+        Study helper only — not official SIG LMS content.
       </p>
-      <div class="cta">
-        <a href="#notes" class="btn">Browse Notes</a>
-        <a href="#about" class="btn btn-secondary">About Me</a>
+
+      <nav class="tabs" aria-label="Semester">
+        <button type="button" class="tab is-active" aria-current="page">
+          Semester 1
+        </button>
+      </nav>
+
+      <div class="toolbar">
+        <label class="search">
+          <span class="sr-only">Search subjects</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search subjects…"
+            autocomplete="off"
+          />
+        </label>
+        <p id="status" class="status" role="status"></p>
       </div>
-    </section>
 
-    <!-- Notes section -->
-    <section id="notes">
-      <h2>Notes</h2>
+      <main id="cards" class="cards"></main>
 
-      <!-- Example note card 1 -->
-      <article class="note">
-        <h3>Getting Started with Spatial Analytics</h3>
-        <p class="note-intro">
-          A gentle introduction to spatial analytics: what it is, why it matters, and how to start thinking in maps and layers.
-        </p>
-        <p>
-          This note covers the basics of spatial data, common tools (QGIS, Python), and simple workflows you can reuse in projects.
-        </p>
-        <ul>
-          <li>What is spatial data?</li>
-          <li>Key concepts: layers, projections, and joins</li>
-          <li>Simple starter workflow in QGIS</li>
-          <li>Next steps for practice</li>
-        </ul>
-        <!-- If you have a dedicated page later, link it: -->
-        <!-- <a href="notes/spatial-analytics-intro.html">Read full note →</a> -->
-      </article>
-
-      <!-- Example note card 2 -->
-      <article class="note">
-        <h3>Practical Tips for Working with AI Tools</h3>
-        <p class="note-intro">
-          How to use AI assistants effectively for study, coding, and content creation — without losing your own voice.
-        </p>
-        <p>
-          These are patterns I use daily: prompt structures, review checklists, and ways to keep AI output honest and useful.
-        </p>
-        <ul>
-          <li>How I structure prompts for assignments</li>
-          <li>Reviewing AI‑generated code safely</li>
-          <li>Using AI to draft, not decide</li>
-        </ul>
-      </article>
-
-      <!-- Add more notes in the same pattern -->
-    </section>
-
-    <!-- About section -->
-    <section id="about" class="about">
-      <h2>About this site</h2>
-      <p>
-        Hi, I’m Pankaj. I’m pursuing an MSc in Data Science and Spatial Analytics and building AI‑focused projects and content.
-        This site is my working notebook — rough ideas, experiments, and lessons learned.
-      </p>
-      <p>
-        I’m especially interested in:
-      </p>
-      <ul>
-        <li>AI tools and automation for learning and productivity</li>
-        <li>Spatial analytics and real‑world data problems</li>
-        <li>Creating educational content (YouTube, blogs, notes)</li>
-      </ul>
-      <p>
-        If you find anything useful or confusing, feel free to reach out via
-        <a href="https://github.com/pankajkori-05" target="_blank" rel="noopener">GitHub</a>
-        or connect on LinkedIn.
-      </p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>
-      © <span id="year"></span> Pankaj Kori. Built with simple HTML & CSS.
-    </p>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
+      <footer class="foot">
+        Notes stay in this browser.
+      </footer>
+    </div>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
