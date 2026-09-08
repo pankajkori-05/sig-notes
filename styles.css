@@ -189,11 +189,20 @@ h1,
   color: var(--teal-deep) !important;
   border: 1px solid var(--line) !important;
   box-shadow: none !important;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .btn-signup:hover {
   background: var(--paper) !important;
   filter: none;
+}
+
+#signupBtn,
+#loginBtn {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .login-form .btn:hover {

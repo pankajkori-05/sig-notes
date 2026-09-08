@@ -24,11 +24,12 @@
               <p class="login-lead">Semester 1 · Name + PRN</p>
             </div>
           </div>
-          <form id="loginForm" class="login-form">
+          <form id="loginForm" class="login-form" novalidate>
             <label class="field">
               <span>Name</span>
               <input
                 id="loginName"
+                name="name"
                 type="text"
                 placeholder="Enter your name"
                 autocomplete="username"
@@ -39,6 +40,7 @@
               <span>PRN</span>
               <input
                 id="loginPrn"
+                name="prn"
                 type="password"
                 placeholder="Enter your PRN"
                 autocomplete="current-password"
@@ -46,21 +48,23 @@
               />
             </label>
             <div class="login-actions">
-              <button type="submit" id="loginBtn" class="btn">Login</button>
-              <button type="button" id="signupBtn" class="btn btn-signup">
+              <button type="submit" class="btn" data-mode="login" id="loginBtn">
+                Login
+              </button>
+              <button type="submit" class="btn btn-signup" data-mode="signup" id="signupBtn">
                 Sign up
               </button>
             </div>
             <p id="loginError" class="login-error" role="status"></p>
             <p class="login-hint">
-              Sign up with Name and PRN to create your account, then you go to the
-              home page. Login next time with the same Name and PRN.
+              Enter Name and PRN, then tap Sign up to create your account and open
+              the home page.
             </p>
           </form>
         </div>
       </section>
     </div>
-    <script src="auth.js"></script>
-    <script src="login.js"></script>
+    <script src="auth.js?v=3"></script>
+    <script src="login.js?v=3"></script>
   </body>
 </html>
