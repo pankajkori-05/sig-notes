@@ -16,51 +16,39 @@
     <div class="bg-art" aria-hidden="true"></div>
     <div class="page login-page">
       <section class="login-screen">
-        <div class="login-shell">
-          <aside class="login-aside">
-            <div class="brand-mark large" aria-hidden="true">SIG</div>
-            <h1>College Notes</h1>
-            <p class="programme">
-              Your Semester 1 study shelf — notes, files, and subjects in one quiet place.
-            </p>
-          </aside>
-          <div class="login-card">
-            <p class="kicker">Student login</p>
-            <h2 class="login-title">Welcome back</h2>
-            <p class="login-lead">
-              Sign in with your name and PRN to open your notes.
-            </p>
-            <form id="loginForm" class="login-form">
-              <label class="field">
-                <span>Name</span>
-                <input
-                  id="loginName"
-                  type="text"
-                  placeholder="Your student name"
-                  autocomplete="username"
-                  required
-                />
-              </label>
-              <label class="field">
-                <span>PRN</span>
-                <input
-                  id="loginPrn"
-                  type="password"
-                  placeholder="Your PRN"
-                  autocomplete="current-password"
-                  required
-                />
-              </label>
-              <button type="submit" id="loginBtn" class="btn">
-                Continue to notes
-              </button>
-              <p id="loginError" class="login-error" role="status"></p>
-              <p class="login-hint">
-                Name is your username, PRN is your password. First login creates
-                your account in this browser only.
-              </p>
-            </form>
+        <div class="login-card">
+          <div class="login-brand-row">
+            <div class="brand-mark" aria-hidden="true">SIG</div>
+            <div>
+              <h1 class="login-title">College Notes</h1>
+              <p class="login-lead">Semester 1 · Name + PRN</p>
+            </div>
           </div>
+          <form id="loginForm" class="login-form">
+            <label class="field">
+              <span>Name</span>
+              <input
+                id="loginName"
+                type="text"
+                placeholder="Student name"
+                autocomplete="username"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>PRN</span>
+              <input
+                id="loginPrn"
+                type="password"
+                placeholder="Password (PRN)"
+                autocomplete="current-password"
+                required
+              />
+            </label>
+            <button type="submit" id="loginBtn" class="btn">Login</button>
+            <p id="loginError" class="login-error" role="status"></p>
+            <p class="login-hint">First login creates your account in this browser.</p>
+          </form>
         </div>
       </section>
     </div>
