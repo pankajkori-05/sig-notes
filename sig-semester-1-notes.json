@@ -1,0 +1,81 @@
+{
+  "programme": "M.Sc. Data Science and Spatial Analytics",
+  "institute": "SIG Pune",
+  "semester": 1,
+  "name": "Pankaj kori",
+  "exportedAt": "2026-09-08T11:59:06.720Z",
+  "subjects": [
+    {
+      "id": "0702440101",
+      "code": "0702440101",
+      "credits": 4,
+      "name": "Mathematics for Spatial Sciences",
+      "teacherNote": "Cover linear algebra and coordinate geometry used in GIS. Keep a short sheet for matrices, distances, and transforms.",
+      "studentNote": "",
+      "studentFiles": []
+    },
+    {
+      "id": "0702440102",
+      "code": "0702440102",
+      "credits": 3,
+      "name": "Statistics and Probability",
+      "teacherNote": "Start with distributions, then sampling and inference. Practice describing a dataset before running a test.",
+      "studentNote": "",
+      "studentFiles": []
+    },
+    {
+      "id": "0702440103",
+      "code": "0702440103",
+      "credits": 3,
+      "name": "Introduction to Geospatial Technology",
+      "teacherNote": "Raster vs vector, projections, and GPS basics. Bring a Pune or campus map example to class.",
+      "studentNote": "",
+      "studentFiles": []
+    },
+    {
+      "id": "0702440104",
+      "code": "0702440104",
+      "credits": 3,
+      "name": "Relational Database Management System",
+      "teacherNote": "Keys, 3NF, and joins first. Write the same query in SQL and as a table merge so the idea sticks.",
+      "studentNote": "",
+      "studentFiles": []
+    },
+    {
+      "id": "0702440105",
+      "code": "0702440105",
+      "credits": 3,
+      "name": "Principles and Practices of Data Protection",
+      "teacherNote": "Consent, purpose limitation, and data minimisation. Do not keep identifiers a lab does not need.",
+      "studentNote": "",
+      "studentFiles": []
+    },
+    {
+      "id": "0702440106",
+      "code": "0702440106",
+      "credits": 3,
+      "name": "Python for Data Science",
+      "teacherNote": "pandas, then NumPy, then plots. Lab habit: load a CSV, clean nulls, groupby, and save a reproducible notebook.",
+      "studentNote": "",
+      "studentFiles": []
+    },
+    {
+      "id": "0702440107",
+      "code": "0702440107",
+      "credits": 2,
+      "name": "Business Communication",
+      "teacherNote": "Audience, structure, and a clear ask. Draft one short email and one slide outline after each session.",
+      "studentNote": "",
+      "studentFiles": []
+    },
+    {
+      "id": "0702440108",
+      "code": "0702440108",
+      "credits": 2,
+      "name": "Research Methodology in Computational Sciences",
+      "teacherNote": "Question, data, method, validity. A classmate should be able to repeat your methods section.",
+      "studentNote": "",
+      "studentFiles": []
+    }
+  ]
+}

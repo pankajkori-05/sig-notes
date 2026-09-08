@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIG College Notes — Semester 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <section id="loginScreen" class="login-screen">
+        <div class="login-card">
+          <p class="kicker">Symbiosis Institute of Geoinformatics, Pune</p>
+          <h1>SIG College Notes</h1>
+          <p class="programme">
+            M.Sc. Data Science and Spatial Analytics · Semester 1
+          </p>
+          <form id="loginForm" class="login-form">
+            <label class="field">
+              <span>Name</span>
+              <input
+                id="loginName"
+                type="text"
+                placeholder="Student name"
+                autocomplete="username"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>PRN</span>
+              <input
+                id="loginPrn"
+                type="password"
+                placeholder="PRN (password)"
+                autocomplete="current-password"
+                required
+              />
+            </label>
+            <button type="submit" id="loginBtn" class="btn">Login</button>
+            <p id="loginError" class="login-error" role="status"></p>
+            <p class="login-hint">
+              Use your student name as username and your PRN as password.
+              First login creates your account in this browser.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <div id="appScreen" class="app-screen" hidden>
+        <header class="top">
+          <div class="brand">
+            <p class="kicker">Symbiosis Institute of Geoinformatics, Pune</p>
+            <h1>SIG College Notes</h1>
+            <p class="programme">
+              M.Sc. Data Science and Spatial Analytics · Semester 1
+            </p>
+          </div>
+          <div class="top-actions">
+            <div class="session">
+              <p class="session-label">Logged in as</p>
+              <p id="sessionName" class="session-name"></p>
+            </div>
+            <button type="button" id="logoutBtn" class="btn btn-secondary">
+              Logout
+            </button>
+          </div>
+        </header>
+
+        <p class="disclaimer">
+          Study helper only — not official SIG LMS content.
+        </p>
+
+        <nav class="tabs" aria-label="Semester">
+          <button type="button" class="tab is-active" aria-current="page">
+            Semester 1
+          </button>
+        </nav>
+
+        <div class="toolbar">
+          <label class="search">
+            <span class="sr-only">Search subjects</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search subjects…"
+              autocomplete="off"
+            />
+          </label>
+          <p id="status" class="status" role="status"></p>
+        </div>
+
+        <main id="cards" class="cards"></main>
+
+        <footer class="foot">
+          Notes stay in this browser.
+        </footer>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
