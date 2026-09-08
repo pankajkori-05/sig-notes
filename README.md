@@ -10,10 +10,7 @@ Semester 1 study helper for M.Sc. Data Science and Spatial Analytics at SIG Pune
 
 ## Login
 
-- **Name** = username  
-- **PRN** = password  
-- First login creates your account in this browser. Later logins need the same Name + PRN.  
-- On the notes page, use **Change password** to update your PRN/password (current password required).  
+- Locked student account: **Pankaj kori** / PRN **26070243024** (fields are read-only).  
 - **Logout** returns to `login.html`.
 
 Upload notes for each subject. Everything is saved in this browser's localStorage.

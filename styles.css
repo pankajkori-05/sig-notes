@@ -160,6 +160,19 @@ h1,
   box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.14);
 }
 
+.login-form .field input.is-locked {
+  background: #eef5f2;
+  color: var(--teal-deep);
+  font-weight: 600;
+  cursor: default;
+  border-color: #c5d9d1;
+}
+
+.login-form .field input.is-locked:focus {
+  box-shadow: none;
+  border-color: #c5d9d1;
+}
+
 .login-form .btn {
   width: 100%;
   margin-top: 2px;

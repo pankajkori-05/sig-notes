@@ -21,7 +21,7 @@
             <div class="brand-mark" aria-hidden="true">SIG</div>
             <div>
               <h1 class="login-title">College Notes</h1>
-              <p class="login-lead">Semester 1 · Name + PRN</p>
+              <p class="login-lead">Semester 1 · Locked student login</p>
             </div>
           </div>
           <form id="loginForm" class="login-form">
@@ -29,9 +29,11 @@
               <span>Name</span>
               <input
                 id="loginName"
+                class="is-locked"
                 type="text"
                 value="Pankaj kori"
-                placeholder="Student name"
+                readonly
+                tabindex="-1"
                 autocomplete="username"
                 required
               />
@@ -40,16 +42,18 @@
               <span>PRN</span>
               <input
                 id="loginPrn"
+                class="is-locked"
                 type="password"
                 value="26070243024"
-                placeholder="Password (PRN)"
+                readonly
+                tabindex="-1"
                 autocomplete="current-password"
                 required
               />
             </label>
             <button type="submit" id="loginBtn" class="btn">Login</button>
             <p id="loginError" class="login-error" role="status"></p>
-            <p class="login-hint">First login creates your account in this browser.</p>
+            <p class="login-hint">Name and PRN are locked for this account.</p>
           </form>
         </div>
       </section>
