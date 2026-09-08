@@ -247,10 +247,7 @@ function renderCard(subject) {
   const title = document.createElement("div");
   const h2 = document.createElement("h2");
   h2.textContent = subject.name;
-  const meta = document.createElement("p");
-  meta.className = "meta";
-  meta.textContent = `${subject.code} · ${subject.credits} cr`;
-  title.append(h2, meta);
+  title.append(h2);
   card.append(title);
   card.append(renderStudentNote(subject));
   return card;
