@@ -21,7 +21,7 @@
             <div class="brand-mark" aria-hidden="true">SIG</div>
             <div>
               <h1 class="login-title">College Notes</h1>
-              <p class="login-lead">Semester 1 · Locked student login</p>
+              <p class="login-lead">Semester 1 · Login or sign up</p>
             </div>
           </div>
           <form id="loginForm" class="login-form">
@@ -29,11 +29,8 @@
               <span>Name</span>
               <input
                 id="loginName"
-                class="is-locked"
                 type="text"
-                value="Pankaj kori"
-                readonly
-                tabindex="-1"
+                placeholder="Student name"
                 autocomplete="username"
                 required
               />
@@ -42,18 +39,23 @@
               <span>PRN</span>
               <input
                 id="loginPrn"
-                class="is-locked"
                 type="password"
-                value="26070243024"
-                readonly
-                tabindex="-1"
+                placeholder="Password (PRN)"
                 autocomplete="current-password"
                 required
               />
             </label>
-            <button type="submit" id="loginBtn" class="btn">Login</button>
+            <div class="login-actions">
+              <button type="submit" id="loginBtn" class="btn">Login</button>
+              <button type="button" id="signupBtn" class="btn btn-signup">
+                Sign up
+              </button>
+            </div>
             <p id="loginError" class="login-error" role="status"></p>
-            <p class="login-hint">Name and PRN are locked for this account.</p>
+            <p class="login-hint">
+              Sign up once to save your account here. Login stores your last name
+              and PRN on this device.
+            </p>
           </form>
         </div>
       </section>
