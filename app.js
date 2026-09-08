@@ -79,6 +79,15 @@ const DEFAULT_SUBJECTS = [
 const els = {
   sessionName: document.getElementById("sessionName"),
   logoutBtn: document.getElementById("logoutBtn"),
+  changePasswordBtn: document.getElementById("changePasswordBtn"),
+  passwordDialog: document.getElementById("passwordDialog"),
+  passwordForm: document.getElementById("passwordForm"),
+  passwordCancelBtn: document.getElementById("passwordCancelBtn"),
+  currentPassword: document.getElementById("currentPassword"),
+  newPassword: document.getElementById("newPassword"),
+  confirmPassword: document.getElementById("confirmPassword"),
+  passwordError: document.getElementById("passwordError"),
+  passwordSuccess: document.getElementById("passwordSuccess"),
   cards: document.getElementById("cards"),
   search: document.getElementById("searchInput"),
   status: document.getElementById("status"),
@@ -367,6 +376,51 @@ els.logoutBtn.addEventListener("click", () => {
   logoutSession();
   window.location.href = "login.html";
 });
+
+function resetPasswordForm() {
+  els.passwordForm.reset();
+  els.passwordError.textContent = "";
+  els.passwordSuccess.textContent = "";
+}
+
+els.changePasswordBtn.addEventListener("click", () => {
+  resetPasswordForm();
+  els.passwordDialog.showModal();
+  els.currentPassword.focus();
+});
+
+els.passwordCancelBtn.addEventListener("click", () => {
+  els.passwordDialog.close();
+  resetPasswordForm();
+});
+
+els.passwordDialog.addEventListener("cancel", () => {
+  resetPasswordForm();
+});
+
+els.passwordForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  els.passwordError.textContent = "";
+  els.passwordSuccess.textContent = "";
+  try {
+    changePassword(
+      els.currentPassword.value,
+      els.newPassword.value,
+      els.confirmPassword.value
+    );
+    els.passwordSuccess.textContent = "Password updated. Use it next time you log in.";
+    els.currentPassword.value = "";
+    els.newPassword.value = "";
+    els.confirmPassword.value = "";
+    setTimeout(() => {
+      els.passwordDialog.close();
+      resetPasswordForm();
+    }, 900);
+  } catch (err) {
+    els.passwordError.textContent = err.message || "Could not change password.";
+  }
+});
+
 els.search.addEventListener("input", render);
 
 if (session?.name) {

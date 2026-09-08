@@ -334,6 +334,89 @@ h1 {
   z-index: 1;
 }
 
+.password-dialog {
+  border: 1px solid rgba(15, 118, 101, 0.14);
+  border-radius: 20px;
+  padding: 0;
+  width: min(100%, 420px);
+  box-shadow: var(--shadow);
+  background: var(--card);
+  color: var(--ink);
+}
+
+.password-dialog::backdrop {
+  background: rgba(8, 59, 52, 0.45);
+  backdrop-filter: blur(3px);
+}
+
+.password-form {
+  display: grid;
+  gap: 12px;
+  padding: 26px 24px;
+}
+
+.password-form h2 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.45rem;
+  color: var(--teal-deep);
+}
+
+.password-lead {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.password-form .field {
+  color: var(--muted);
+}
+
+.password-form .field input {
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--ink);
+}
+
+.password-form .field input:focus {
+  outline: none;
+  border-color: var(--focus);
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.15);
+}
+
+.password-error {
+  margin: 0;
+  min-height: 1.2em;
+  color: #b42318;
+  font-size: 0.88rem;
+}
+
+.password-success {
+  margin: 0;
+  min-height: 1.2em;
+  color: var(--teal);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.password-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.password-save {
+  height: 42px;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+  border: 0;
+  color: #fff;
+}
+
 .field {
   display: grid;
   gap: 7px;

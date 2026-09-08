@@ -31,11 +31,60 @@
             <p class="session-label">Logged in as</p>
             <p id="sessionName" class="session-name"></p>
           </div>
+          <button type="button" id="changePasswordBtn" class="btn btn-secondary">
+            Change password
+          </button>
           <button type="button" id="logoutBtn" class="btn btn-secondary">
             Logout
           </button>
         </div>
       </header>
+
+      <dialog id="passwordDialog" class="password-dialog">
+        <form id="passwordForm" class="password-form">
+          <h2>Change password</h2>
+          <p class="password-lead">
+            Your password is the PRN you use at login. Enter the current one, then choose a new password.
+          </p>
+          <label class="field">
+            <span>Current password</span>
+            <input
+              id="currentPassword"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+          <label class="field">
+            <span>New password</span>
+            <input
+              id="newPassword"
+              type="password"
+              autocomplete="new-password"
+              minlength="4"
+              required
+            />
+          </label>
+          <label class="field">
+            <span>Confirm new password</span>
+            <input
+              id="confirmPassword"
+              type="password"
+              autocomplete="new-password"
+              minlength="4"
+              required
+            />
+          </label>
+          <p id="passwordError" class="password-error" role="status"></p>
+          <p id="passwordSuccess" class="password-success" role="status"></p>
+          <div class="password-actions">
+            <button type="button" id="passwordCancelBtn" class="btn-ghost">
+              Cancel
+            </button>
+            <button type="submit" class="btn password-save">Save password</button>
+          </div>
+        </form>
+      </dialog>
 
       <section class="intro">
         <p class="welcome">

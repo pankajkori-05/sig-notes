@@ -83,3 +83,40 @@ function loginWithNameAndPrn(name, prn) {
 function logoutSession() {
   saveSession(null);
 }
+
+function changePassword(currentPrn, newPrn, confirmPrn) {
+  const session = loadSession();
+  if (!session?.name) {
+    throw new Error("You must be logged in to change your password.");
+  }
+
+  const current = String(currentPrn || "").trim();
+  const next = String(newPrn || "").trim();
+  const confirm = String(confirmPrn || "").trim();
+
+  if (!current || !next || !confirm) {
+    throw new Error("Fill in current password, new password, and confirm.");
+  }
+  if (next.length < 4) {
+    throw new Error("New password must be at least 4 characters.");
+  }
+  if (next !== confirm) {
+    throw new Error("New password and confirm do not match.");
+  }
+  if (next === current) {
+    throw new Error("New password must be different from the current one.");
+  }
+
+  const accounts = loadAccounts();
+  const key = normalizeName(session.name);
+  const account = accounts[key];
+  if (!account) {
+    throw new Error("Account not found. Log out and log in again.");
+  }
+  if (account.prn !== current) {
+    throw new Error("Current password (PRN) is wrong.");
+  }
+
+  accounts[key] = { ...account, prn: next };
+  saveAccounts(accounts);
+}
