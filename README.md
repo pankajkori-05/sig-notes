@@ -16,3 +16,7 @@ Semester 1 study helper for M.Sc. Data Science and Spatial Analytics at SIG Pune
 - **Logout** returns to `login.html`.
 
 Upload notes for each subject. Everything is saved in this browser's localStorage.
+
+## Study chat
+
+On the notes page, open **Study chat** (bottom right). Ask about Semester 1 subjects or how to upload/login. Replies are local keyword help, not an AI API.
