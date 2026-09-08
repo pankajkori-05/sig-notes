@@ -116,8 +116,13 @@ function signupWithNameAndPrn(name, prn) {
   ensureDefaultAccount();
   const accounts = loadAccounts();
   const key = normalizeName(studentName);
-  if (accounts[key]) {
-    throw new Error("That name is already signed up. Use Login instead.");
+  const existing = accounts[key];
+
+  if (existing) {
+    if (existing.prn !== password) {
+      throw new Error("That name is already signed up with a different PRN. Use Login.");
+    }
+    return completeLogin(existing.name || studentName, password);
   }
 
   accounts[key] = { name: studentName, prn: password };

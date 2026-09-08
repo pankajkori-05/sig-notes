@@ -13,25 +13,27 @@ const remembered = loadLastLogin();
 nameInput.value = remembered.name || "";
 prnInput.value = remembered.prn || "";
 
-function goToNotes() {
+function goHome() {
   errorEl.textContent = "";
-  window.location.href = "index.html";
+  window.location.replace("index.html");
 }
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   try {
     loginWithNameAndPrn(nameInput.value, prnInput.value);
-    goToNotes();
+    goHome();
   } catch (err) {
     errorEl.textContent = err.message || "Login failed.";
   }
 });
 
 signupBtn.addEventListener("click", () => {
+  errorEl.textContent = "";
+  if (!form.reportValidity()) return;
   try {
     signupWithNameAndPrn(nameInput.value, prnInput.value);
-    goToNotes();
+    goHome();
   } catch (err) {
     errorEl.textContent = err.message || "Sign up failed.";
   }
