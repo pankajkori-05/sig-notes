@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login — SIG College Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page login-page">
+      <section class="login-screen">
+        <div class="login-card">
+          <p class="kicker">Symbiosis Institute of Geoinformatics, Pune</p>
+          <h1>SIG College Notes</h1>
+          <p class="programme">
+            M.Sc. Data Science and Spatial Analytics · Semester 1
+          </p>
+          <form id="loginForm" class="login-form">
+            <label class="field">
+              <span>Name</span>
+              <input
+                id="loginName"
+                type="text"
+                placeholder="Student name"
+                autocomplete="username"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>PRN</span>
+              <input
+                id="loginPrn"
+                type="password"
+                placeholder="PRN (password)"
+                autocomplete="current-password"
+                required
+              />
+            </label>
+            <button type="submit" id="loginBtn" class="btn">Login</button>
+            <p id="loginError" class="login-error" role="status"></p>
+            <p class="login-hint">
+              Use your student name as username and your PRN as password.
+              First login creates your account in this browser.
+            </p>
+          </form>
+        </div>
+      </section>
+    </div>
+    <script src="auth.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>

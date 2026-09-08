@@ -1,9 +1,13 @@
 const STORAGE_KEY = "sig-college-notes-v3";
-const ACCOUNTS_KEY = "sig-student-accounts";
-const SESSION_KEY = "sig-student-session";
 const MAX_FILE_BYTES = 4 * 1024 * 1024;
 const ALLOWED_EXT = ["pdf", "png", "jpg", "jpeg", "txt", "md", "doc", "docx"];
 const ACCEPT = ALLOWED_EXT.map((ext) => `.${ext}`).join(",");
+
+const session = loadSession();
+if (!session?.name) {
+  window.location.replace("login.html");
+  throw new Error("Not logged in");
+}
 
 const DEFAULT_SUBJECTS = [
   {
@@ -73,12 +77,6 @@ const DEFAULT_SUBJECTS = [
 ];
 
 const els = {
-  loginScreen: document.getElementById("loginScreen"),
-  appScreen: document.getElementById("appScreen"),
-  loginForm: document.getElementById("loginForm"),
-  loginName: document.getElementById("loginName"),
-  loginPrn: document.getElementById("loginPrn"),
-  loginError: document.getElementById("loginError"),
   sessionName: document.getElementById("sessionName"),
   logoutBtn: document.getElementById("logoutBtn"),
   cards: document.getElementById("cards"),
@@ -87,83 +85,14 @@ const els = {
 };
 
 let state = loadState();
-let session = loadSession();
-
-function loadAccounts() {
-  try {
-    const raw = localStorage.getItem(ACCOUNTS_KEY);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === "object" ? parsed : {};
-  } catch {
-    return {};
-  }
-}
-
-function saveAccounts(accounts) {
-  localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
-}
-
-function loadSession() {
-  try {
-    const raw = localStorage.getItem(SESSION_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed.name !== "string" || !parsed.name.trim()) return null;
-    return { name: parsed.name.trim() };
-  } catch {
-    return null;
-  }
-}
-
-function saveSession(next) {
-  if (!next) {
-    localStorage.removeItem(SESSION_KEY);
-    session = null;
-    return;
-  }
-  session = { name: next.name.trim() };
-  localStorage.setItem(SESSION_KEY, JSON.stringify(session));
-}
-
-function normalizeName(name) {
-  return name.trim().toLowerCase();
-}
-
-function login(name, prn) {
-  const studentName = name.trim();
-  const password = prn.trim();
-  if (!studentName || !password) {
-    throw new Error("Enter your name and PRN.");
-  }
-
-  const accounts = loadAccounts();
-  const key = normalizeName(studentName);
-  const existing = accounts[key];
-
-  if (!existing) {
-    accounts[key] = { name: studentName, prn: password };
-    saveAccounts(accounts);
-  } else if (existing.prn !== password) {
-    throw new Error("Wrong PRN for this name.");
-  }
-
-  state.name = existing?.name || studentName;
+if (session?.name) {
+  state.name = session.name;
   persist();
-  saveSession({ name: state.name });
-}
-
-function logout() {
-  saveSession(null);
-  els.loginName.value = "";
-  els.loginPrn.value = "";
-  els.loginError.textContent = "";
-  showScreen();
 }
 
 function loadState() {
   const fresh = {
-    name: "",
+    name: session?.name || "",
     subjects: structuredClone(DEFAULT_SUBJECTS),
   };
   try {
@@ -172,7 +101,7 @@ function loadState() {
     const parsed = JSON.parse(raw);
     const byId = new Map((parsed.subjects || []).map((s) => [s.id, s]));
     return {
-      name: typeof parsed.name === "string" ? parsed.name : "",
+      name: session?.name || (typeof parsed.name === "string" ? parsed.name : ""),
       subjects: DEFAULT_SUBJECTS.map((base) => {
         const saved = byId.get(base.id);
         return saved
@@ -417,16 +346,6 @@ function renderStudentFiles(subject) {
   return box;
 }
 
-function showScreen() {
-  const loggedIn = Boolean(session?.name);
-  els.loginScreen.hidden = loggedIn;
-  els.appScreen.hidden = !loggedIn;
-  if (loggedIn) {
-    els.sessionName.textContent = session.name;
-    render();
-  }
-}
-
 function render() {
   if (!session?.name) return;
   els.sessionName.textContent = session.name;
@@ -447,19 +366,12 @@ function render() {
   }
 }
 
-els.loginForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  try {
-    login(els.loginName.value, els.loginPrn.value);
-    els.loginError.textContent = "";
-    showScreen();
-    setStatus(`Welcome, ${session.name}`);
-  } catch (err) {
-    els.loginError.textContent = err.message || "Login failed.";
-  }
+els.logoutBtn.addEventListener("click", () => {
+  logoutSession();
+  window.location.href = "login.html";
 });
-
-els.logoutBtn.addEventListener("click", logout);
 els.search.addEventListener("input", render);
 
-showScreen();
+if (session?.name) {
+  render();
+}

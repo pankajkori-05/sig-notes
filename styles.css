@@ -32,6 +32,10 @@ body {
   padding: 28px 18px 40px;
 }
 
+.login-page {
+  max-width: none;
+}
+
 .login-screen {
   min-height: calc(100vh - 56px);
   display: grid;
