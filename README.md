@@ -14,3 +14,4 @@ Open `index.html` in a browser (or use Live Server).
 Upload notes for each subject. Everything is saved in this browser's localStorage.
 # sig-notes
 # sig-notes
+# sig-notes
